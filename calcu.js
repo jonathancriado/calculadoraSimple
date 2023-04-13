@@ -2,50 +2,54 @@ let primerNumero = "";
 let operadorLogico = "";
 let segundoNumero = "";
 let r = "";
-/**function actualizarPrimerNumero(valor) {
-    primerNumero = parseInt(valor);
-    console.log(primerNumero)
-} */
+
+let visor = document.getElementById("display");
 
 function numeros(valor) {
     if (operadorLogico == "") {
         primerNumero += valor;
-        console.log(primerNumero);
+        visor.value = primerNumero;
     } else if (operadorLogico != "") {
         segundoNumero += valor;
-        console.log(segundoNumero);
+        visor.value = primerNumero + " " + operadorLogico + " " + segundoNumero;
     }
-    primerNumero = parseInt(primerNumero);
 };
 
 function actualizarOperadorLogico(operador) {
-    if (primerNumero != "" || primerNumero == 0) {
+    if (primerNumero != "" && segundoNumero == "") {
         operadorLogico = operador;
-        console.log(operadorLogico);
+        visor.value = primerNumero + " " + operadorLogico;
     }
 };
 
 function resultado() {
-    segundoNumero = parseInt(segundoNumero);
-    if (operadorLogico == "+") {
-        r = primerNumero + segundoNumero;
-        console.log(r);
+    if (segundoNumero != "" && primerNumero != "") {
+        primerNumero = parseFloat(primerNumero);
+        segundoNumero = parseFloat(segundoNumero);
+        if (operadorLogico == "+") {
+            r = primerNumero + segundoNumero;
+        } else if (operadorLogico == "-") {
+            r = primerNumero - segundoNumero;
+        } else if (operadorLogico == "*") {
+            r = primerNumero * segundoNumero;
+        } else if (operadorLogico == "/") {
+            r = primerNumero / segundoNumero;
+        }; /**
+        if(r > 10000) {
+            r = r.toPrecision(3)
+        } else if(r < 0.0001) {
+            r = r.toPrecision(3)
+        }
+        visor.value = primerNumero + " " + operadorLogico + " " + segundoNumero + " " + "= " + r.toFixed(2); */
+        /** VAMOS A HACER NUMEROS DECIMALES CON 2 DIGITOS */
+        if (r % 1 != 0) {
+            r = r.toPrecision(3);
+        }
+        visor.value = r;
+        primerNumero = "";
+        operadorLogico = "";
+        segundoNumero = "";
     }
-    else if (operadorLogico == "-") {
-        r = primerNumero - segundoNumero;
-        console.log(r);
-    } else if (operadorLogico == "*") {
-        r = primerNumero * segundoNumero;
-        console.log(r);
-    } else if (operadorLogico == "/") {
-        r = primerNumero / segundoNumero;
-        console.log(r);
-    } else {
-        console.log("Ingresar valores correctamente")
-    };
-    primerNumero = "";
-    operadorLogico = "";
-    segundoNumero = "";
 };
 
 function borrar() {
@@ -53,7 +57,7 @@ function borrar() {
     segundoNumero = "";
     operadorLogico = "";
     r = "";
-    console.clear();
+    visor.value = "";
 };
 
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -9,31 +9,43 @@
     <title>Calculadora Simple</title>
 </head>
 
-<body>
+<body class="body">
     <div class="container">
-        <div class="pantalla">
-            <input type="text" name="" id="">
-        </div>
-        <div class="operacionesYBorrar">
-            <button class="borrar" id="borrar" onclick="borrar()">AC</button>
-            <button class="operaciones" id="suma" onclick="actualizarOperadorLogico(this.value)" value="+">+</button>
-            <button class="operaciones" id="resta" onclick="actualizarOperadorLogico(this.value)" value="-">-</button>
-            <button class="operaciones" id="multiplicar" onclick="actualizarOperadorLogico(this.value)" value="*">*</button>
-            <button class="operaciones" id="dividir" onclick="actualizarOperadorLogico(this.value)" value="/">/</button>
-        </div>
-        <div class="numerosPuntoIgual">
-            <button class="numeros" id="siete" onclick="numeros(this.value)" value="7">7</button>
-            <button class="numeros" id="ocho" onclick="numeros(this.value)" value="8">8</button>
-            <button class="numeros" id="nueve" onclick="numeros(this.value)" value="9">9</button>
-            <button class="numeros" id="cuatro" onclick="numeros(this.value)" value="4">4</button>
-            <button class="numeros" id="cinco" onclick="numeros(this.value)" value="5">5</button>
-            <button class="numeros" id="seis" onclick="numeros(this.value)" value="6">6</button>
-            <button class="numeros" id="uno" onclick="numeros(this.value)" value="1">1</button>
-            <button class="numeros" id="dos" onclick="numeros(this.value)" value="2">2</button>
-            <button class="numeros" id="tres" onclick="numeros(this.value)" value="3">3</button>
-            <button class="numeros" id="cero" onclick="numeros(this.value)" value="0">0</button>
-            <button class="punto" id="punto" onclick="numeros(this.value)" value=".">.</button>
-            <button class="igual" id="resutado" onclick="resultado()">=</button>
+        <div class="card">
+            <div class="pantalla">
+                <input type="text" id="display">
+            </div>
+            <div class="parteSuperior centrar">
+                <button class="borrar botones" id="borrar" onclick="borrar()">AC</button>
+            </div>
+            <div class="primeraLinea centrar">
+                <button class="numeros botones" id="siete" onclick="numeros(this.value)" value="7">7</button>
+                <button class="numeros botones" id="ocho" onclick="numeros(this.value)" value="8">8</button>
+                <button class="numeros botones" id="nueve" onclick="numeros(this.value)" value="9">9</button>
+                <button class="operaciones botones" id="dividir" onclick="actualizarOperadorLogico(this.value)"
+                    value="/">/</button>
+            </div>
+            <div class="segundaLinea centrar">
+                <button class="numeros botones" id="cuatro" onclick="numeros(this.value)" value="4">4</button>
+                <button class="numeros botones" id="cinco" onclick="numeros(this.value)" value="5">5</button>
+                <button class="numeros botones" id="seis" onclick="numeros(this.value)" value="6">6</button>
+                <button class="operaciones botones" id="multiplicar" onclick="actualizarOperadorLogico(this.value)"
+                    value="*">*</button>
+            </div>
+            <div class="terceraLinea centrar">
+                <button class="numeros botones" id="uno" onclick="numeros(this.value)" value="1">1</button>
+                <button class="numeros botones" id="dos" onclick="numeros(this.value)" value="2">2</button>
+                <button class="numeros botones" id="tres" onclick="numeros(this.value)" value="3">3</button>
+                <button class="operaciones botones" id="resta" onclick="actualizarOperadorLogico(this.value)"
+                    value="-">-</button>
+            </div>
+            <div class="cuartaLinea centrar">
+                <button class="numeros botones" id="cero" onclick="numeros(this.value)" value="0">0</button>
+                <button class="punto botones" id="punto" onclick="numeros(this.value)" value="">.</button>
+                <button class="igual botones" id="resutado" onclick="resultado()">=</button>
+                <button class="operaciones botones" id="suma" onclick="actualizarOperadorLogico(this.value)"
+                    value="+">+</button>
+            </div>
         </div>
     </div>
     <script src="calcu.js"></script>
